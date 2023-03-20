@@ -30,8 +30,9 @@ export class ProductsService {
      * @method findAllProdutcts :
      * * Method avec requête SQL permettant de récupérer tous les produits existants. 
      */
-  async findAllProducts(): Promise<Product[]> {
-    return await Product.find();
+  async findAllProducts() {
+    const response =  await Product.find();
+    return response;
   }
 
   /** 

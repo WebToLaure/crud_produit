@@ -56,11 +56,14 @@ export class ProductsController {
   @Get()
   @ApiOperation({ summary: "Récupération de l'ensemble des produits en stock" })
   async findAllProducts() {
-    const allProducts = await this.productsService.findAllProducts;
+
+    const allProducts = await this.productsService.findAllProducts();
 
     if (!allProducts) {
-      throw new HttpException("aucun produit de ce type trouvé", HttpStatus.NOT_FOUND);
+
+      throw new HttpException("aucun produit trouvé", HttpStatus.NOT_FOUND);
     }
+
     return {
       statusCode: 200,
       data: allProducts,
