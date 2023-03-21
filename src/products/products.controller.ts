@@ -109,15 +109,15 @@ export class ProductsController {
     if (!product) {
       throw new HttpException("Le Produit n'existe pas", HttpStatus.NOT_FOUND);
     }
-    const update = await this.productsService.update(+id, updateProductDto);
+    const update = await this.productsService.update(id,updateProductDto);
     return {
       statusCode: 200,
-      message: "Le prduit a bien été modifié",
+      message: "Le produit a bien été modifié",
       data: update
     }
   }
   /** 
-     * @method deleteMenu :
+     * @method deleteProduct :
      * 
      * Une méthode permettant de :
      * * Controler les données entrantes et vérifier que le protocole de saisie ou de modification soient bien respectés.

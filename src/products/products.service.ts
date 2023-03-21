@@ -53,12 +53,13 @@ export class ProductsService {
      * * Method avec requête SQL permettant de modifier ou de mettre jour les données d'un produit . 
      */
   async update(id: number, updateProductDto: UpdateProductDto) {
-    const product = await Product.findOneBy({ id });
-    if (!product) {
-      return undefined
+    const updatedProduct = await Product.update(+id, updateProductDto);
+    if (updatedProduct) {
+      return Product.findOneBy({id})
     }
-    return await Product.update(+id, updateProductDto);
+    return undefined;
   }
+
 
   /** 
      * @method deleteProduct :
