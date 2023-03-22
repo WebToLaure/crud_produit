@@ -19,7 +19,7 @@ export class Product extends BaseEntity {
     @ApiProperty()
     @Column({
         type: "decimal",
-        precision: 6,
+        precision: 7,
         scale: 2,
         default: 0
     })
